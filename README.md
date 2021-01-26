@@ -29,6 +29,10 @@ The Script can be used as a starting point, to import other data sources.
 ````  
 python ./data_import/mongo_dummy_import.py  
 ````  
-  
+### 3. Login
+
+usr: testuser
+pwd: testuser
+ 
 #### Requirements  
 - pymongo
