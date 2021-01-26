@@ -1,0 +1,6 @@
+{
+    "id": 0,
+    "name" : "testuser",
+    "pwd" : "pbkdf2:sha256:150000$MXEDXIHM$57329c4bbadc0836bd780e045d46543267f33daee600f7cac4c30fff9128cb01",
+    "role" : "admin"
+}

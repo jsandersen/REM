@@ -1,0 +1,6 @@
+{
+    "id": 0,
+    "name" : "userlab",
+    "pwd" : "pbkdf2:sha256:150000$xIBYJdoJ$5eefba2d5e9da6c80f231dcca2221eca1a382bd702f1e6adbd47d16db5ab50e7",
+    "role" : "admin"
+}

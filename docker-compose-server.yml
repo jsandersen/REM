@@ -1,0 +1,34 @@
+version: '2'
+services:
+
+    flask:
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        volumes:
+            - ./backend:/usr/src/app
+        ports:
+            - 5050:5050
+        environment:
+            - PRODUCTION=1
+
+    vue:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        ports:
+            - 8080:8080
+        depends_on:
+            - flask
+        environment:
+            - NODE_ENV=production
+            
+    proxy:
+        build: 
+            context: ./proxy
+            dockerfile: Dockerfile
+        depends_on:
+            - flask
+        ports:
+            - 80:8888
+

@@ -1,0 +1,39 @@
+version: '2'
+services:
+
+    flask:
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        volumes:
+            - ./backend:/usr/src/app
+        ports:
+            - 5050:5050
+        environment:
+            - JWT_SECRET=UqDa9xN5NWGA9rtytG5Yqz3sK6gVSBwhQmBVrHpSMCjaRqrQ
+            - MONGO_DBNAME=rem
+            - MONGO_URI=mongodb://mongo:27017/
+            - TEST_DATA=True
+        links:      
+           - mongo
+
+    mongo:
+        image: mongo
+        volumes:
+            - mongodb:/data/db
+        ports:
+            - 27017:27017
+
+    vue:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        ports:
+            - 8080:8080
+        depends_on:
+            - flask
+        environment:
+            - NODE_ENV=local
+      
+volumes:
+    mongodb:
